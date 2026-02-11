@@ -141,6 +141,7 @@ class NfCarouselItem extends Component {
                                             return (
                                                 <NfCarouselImage
                                                     key={movie.imdbID}
+                                                    id={movie.imdbID}
                                                     title={movie.Title}
                                                     year={movie.Year}
                                                     src={movie.Poster}
@@ -165,6 +166,7 @@ class NfCarouselItem extends Component {
                                             return (
                                                 <NfCarouselImage
                                                     key={movie.imdbID}
+                                                    id={movie.imdbID}
                                                     title={movie.Title}
                                                     year={movie.Year}
                                                     src={movie.Poster}
@@ -189,6 +191,7 @@ class NfCarouselItem extends Component {
                                             return (
                                                 <NfCarouselImage
                                                     key={movie.imdbID}
+                                                    id={movie.imdbID}
                                                     title={movie.Title}
                                                     year={movie.Year}
                                                     src={movie.Poster}
