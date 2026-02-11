@@ -7,6 +7,7 @@ import { Alert } from "react-bootstrap";
 
 const NfTvShows = () => {
     const [search, setSearch] = useState("");
+    const titleText = `Risultati di ricerca per: ${search}`;
 
     return (
         <>
@@ -21,7 +22,11 @@ const NfTvShows = () => {
                     Effettua una ricerca, i risultati compariranno in automatico
                 </Alert>
             ) : (
-                <NfCarouselBar title={search} id="search-bar" search={search} />
+                <NfCarouselBar
+                    title={titleText}
+                    id="search-bar"
+                    search={search}
+                />
             )}
         </>
     );
