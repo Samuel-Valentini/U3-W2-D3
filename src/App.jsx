@@ -9,6 +9,8 @@ import NfMain from "./component/NfMain";
 import NfEditProfile from "./component/NfEditProfile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NfTvShows from "./component/NfTvShows";
+import { Alert } from "react-bootstrap";
+import MovieDetails from "./component/MovieDetails";
 
 // grazie al bottone giallo in alto nella pagina si può passare da home a edit profile
 
@@ -34,6 +36,20 @@ function App() {
                         <Route
                             path="/tv-shows"
                             element={<NfTvShows></NfTvShows>}
+                        />
+                        <Route
+                            path="movie-details/:id"
+                            element={
+                                <>
+                                    <NfNavbar />
+                                    <Alert
+                                        variant="success"
+                                        className="w-50 mx-auto mt-5">
+                                        qui vanno i dettagli
+                                    </Alert>
+                                    <MovieDetails></MovieDetails>
+                                </>
+                            }
                         />
                     </Routes>
                     <NfFooter></NfFooter>

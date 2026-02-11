@@ -1,2 +1,4 @@
 export const hello = `AVVISO: Il solo errore 404 dovuto al fatto che alcuni link di immagini presenti nel database non sono più attivi (a volte temporaneamente) e che compare quando il client cerca di caricare l'immagine utilizzando il link fornito dal database è stato gestito caricando in caso di errore un segnaposto al posto dell'immagine, in ogni caso rimane l'indicazione in console.`;
-export const urlAPI = "http://www.omdbapi.com/?i=tt3896198&apikey=2d4cc0f9&s=";
+export const urlAPI = "http://www.omdbapi.com/?apikey=2d4cc0f9&s=";
+export const urlAPIid = "http://www.omdbapi.com/?apikey=2d4cc0f9&i=";
+export const plotFull = "&plot=full";
