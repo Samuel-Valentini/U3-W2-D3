@@ -12,7 +12,7 @@ class NfNavbar extends Component {
                             <div className="container-fluid px-0">
                                 <a
                                     className="navbar-brand d-flex align-items-center me-4"
-                                    href="#">
+                                    href="/">
                                     <span>
                                         <img
                                             src="/assets/img/netflix_logo.png"
@@ -85,7 +85,7 @@ class NfNavbar extends Component {
 
                                         <a
                                             className="d-flex align-items-center gap-2 text-decoration-none"
-                                            href="#">
+                                            href="/edit-profile">
                                             <img
                                                 className="avatar"
                                                 src="/assets/img/avatar.png"

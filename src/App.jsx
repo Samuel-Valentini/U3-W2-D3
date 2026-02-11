@@ -7,22 +7,38 @@ import NfFooter from "./component/NfFooter";
 import NfNavbar from "./component/NfNavbar";
 import NfMain from "./component/NfMain";
 import NfEditProfile from "./component/NfEditProfile";
-
-import { hello } from "./component/constants";
-
-console.log(hello);
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NfTvShows from "./component/NfTvShows";
 
 // grazie al bottone giallo in alto nella pagina si può passare da home a edit profile
 
 function App() {
     return (
         <>
-            <div className="index">
-                <NfNavbar />
-                <NfMain />
-                <NfEditProfile />
-                <NfFooter></NfFooter>
-            </div>
+            <BrowserRouter>
+                <div className="index">
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <>
+                                    <NfNavbar />
+                                    <NfMain />
+                                </>
+                            }
+                        />
+                        <Route
+                            path="/edit-profile"
+                            element={<NfEditProfile />}
+                        />
+                        <Route
+                            path="/tv-shows"
+                            element={<NfTvShows></NfTvShows>}
+                        />
+                    </Routes>
+                    <NfFooter></NfFooter>
+                </div>
+            </BrowserRouter>
         </>
     );
 }

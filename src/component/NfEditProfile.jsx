@@ -9,7 +9,7 @@ class NfEditProfile extends Component {
                     data-bs-theme="dark"
                     style={{ color: "white" }}>
                     <header>
-                        <a href="#">
+                        <a href="/">
                             <img
                                 src="/assets/img/netflix_logo.png"
                                 alt="Netflix logo"

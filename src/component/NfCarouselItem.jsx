@@ -14,7 +14,7 @@ class NfCarouselItem extends Component {
     getData() {
         // console.log("getData online");
 
-        const searchString = this.state.search;
+        const searchString = this.props.search;
         const searchUrl = urlAPI + searchString;
 
         // in questa fetch recupererò 3 pagine in maniera tale da avere 30 film a disposizione su cui fare il ciclo
@@ -99,6 +99,12 @@ class NfCarouselItem extends Component {
 
     componentDidMount() {
         this.getData();
+    }
+
+    componentDidUpdate(prevP) {
+        if (prevP.search !== this.props.search) {
+            this.getData();
+        }
     }
 
     render() {

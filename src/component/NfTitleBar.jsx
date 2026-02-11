@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class NfTitleBar extends Component {
     render() {
@@ -8,7 +9,11 @@ class NfTitleBar extends Component {
                     <div className="col">
                         <div className="row align-items-center justify-content-start flex-nowrap">
                             <h1 className="text-white col text-nowrap">
-                                TV Shows
+                                <Link
+                                    to="/tv-shows"
+                                    className="text-white text-decoration-none">
+                                    TV Shows
+                                </Link>
                             </h1>
                             <div className="dropdown col">
                                 <button
