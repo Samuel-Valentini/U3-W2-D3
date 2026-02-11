@@ -42,11 +42,7 @@ function App() {
                             element={
                                 <>
                                     <NfNavbar />
-                                    <Alert
-                                        variant="success"
-                                        className="w-50 mx-auto mt-5">
-                                        qui vanno i dettagli
-                                    </Alert>
+
                                     <MovieDetails></MovieDetails>
                                 </>
                             }

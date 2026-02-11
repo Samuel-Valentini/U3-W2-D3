@@ -51,6 +51,9 @@ const MovieDetails = () => {
             {movieData ? (
                 <>
                     <Card className="bg-dark text-light">
+                        <Card.Title className="text-center mt-4">
+                            {movieData.Title}
+                        </Card.Title>
                         <Card.Img
                             variant="top"
                             src={movieData.Poster}
@@ -58,9 +61,6 @@ const MovieDetails = () => {
                             className="mx-auto mt-3"
                         />
                         <Card.Body>
-                            <Card.Title className="text-center">
-                                {movieData.Title}
-                            </Card.Title>
                             <Card.Text>{movieData.Plot}</Card.Text>
                             <Card.Text className="fw-bold">
                                 Awards: {movieData.Actors}
@@ -89,89 +89,90 @@ const MovieDetails = () => {
                         </Card.Body>
                     </Card>
                     {/* qui */}
-                    <hr />
-                    <h2>Reviews</h2>
-                    <ReviewsAccordion
-                        id={movieData.imdbID}
-                        notifyReviews={notifyReviews}></ReviewsAccordion>
-                    <Form
-                        className="me-3"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            if (dataToSend.rate !== "") {
-                                setShouldPost(true);
-                            } else {
-                                alert("rate non inserito");
-                            }
-                        }}>
-                        <h4 className="text-center mt-3">Leave a review</h4>
+                    <div className="text-light mx-3">
+                        <hr />
+                        <h2 className="text-center">Reviews</h2>
+                        <ReviewsAccordion
+                            id={movieData.imdbID}
+                            notifyReviews={notifyReviews}></ReviewsAccordion>
+                        <Form
+                            className=""
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                if (dataToSend.rate !== "") {
+                                    setShouldPost(true);
+                                } else {
+                                    alert("rate non inserito");
+                                }
+                            }}>
+                            <h4 className="text-center mt-3">Leave a review</h4>
 
-                        <Form.Group
-                            className="mb-3"
-                            controlId="exampleForm.ControlTextarea1">
-                            <Form.Control
-                                required
-                                as="textarea"
-                                rows={3}
-                                value={dataToSend.comment}
+                            <Form.Group
+                                className="mb-3"
+                                controlId="exampleForm.ControlTextarea1">
+                                <Form.Control
+                                    required
+                                    as="textarea"
+                                    rows={3}
+                                    value={dataToSend.comment}
+                                    onChange={(e) => {
+                                        setDataToSend({
+                                            ...dataToSend,
+                                            comment: e.target.value,
+                                            elementId: movieData.imdbID,
+                                        });
+                                    }}
+                                />
+                            </Form.Group>
+                            <Form.Select
+                                value={dataToSend.rate}
                                 onChange={(e) => {
                                     setDataToSend({
                                         ...dataToSend,
-                                        comment: e.target.value,
-                                        elementId: movieData.imdbID,
+                                        rate: e.target.value,
                                     });
                                 }}
-                            />
-                        </Form.Group>
-                        <Form.Select
-                            value={dataToSend.rate}
-                            onChange={(e) => {
-                                setDataToSend({
-                                    ...dataToSend,
-                                    rate: e.target.value,
-                                });
-                            }}
-                            required
-                            aria-label="Default select example">
-                            <option value="">Rate</option>
-                            <option value="1"> &#9733; 1/5</option>
-                            <option value="2"> &#9733;&#9733; 2/5</option>
-                            <option value="3">
-                                {" "}
-                                &#9733;&#9733;&#9733; 3/5
-                            </option>
-                            <option value="4">
-                                {" "}
-                                &#9733;&#9733;&#9733;&#9733; 4/5
-                            </option>
-                            <option value="5">
-                                {" "}
-                                &#9733;&#9733;&#9733;&#9733;&#9733;5/5
-                            </option>
-                        </Form.Select>
-                        {shouldPost && (
-                            <AddComment
-                                dataToSend={dataToSend}
-                                onDone={(ok) => {
-                                    setShouldPost(false);
-                                    setNotifyReviews((prev) => prev + 1);
+                                required
+                                aria-label="Default select example">
+                                <option value="">Rate</option>
+                                <option value="1"> &#9733; 1/5</option>
+                                <option value="2"> &#9733;&#9733; 2/5</option>
+                                <option value="3">
+                                    {" "}
+                                    &#9733;&#9733;&#9733; 3/5
+                                </option>
+                                <option value="4">
+                                    {" "}
+                                    &#9733;&#9733;&#9733;&#9733; 4/5
+                                </option>
+                                <option value="5">
+                                    {" "}
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;5/5
+                                </option>
+                            </Form.Select>
+                            {shouldPost && (
+                                <AddComment
+                                    dataToSend={dataToSend}
+                                    onDone={(ok) => {
+                                        setShouldPost(false);
+                                        setNotifyReviews((prev) => prev + 1);
 
-                                    if (ok) {
-                                        setDataToSend((prev) => ({
-                                            ...prev,
-                                            comment: "",
-                                            rate: "",
-                                            elementId: "",
-                                        }));
-                                    }
-                                }}></AddComment>
-                        )}
-                        <div className="text-center mt-2">
-                            <Button type="submit">Submit</Button>
-                        </div>
-                    </Form>{" "}
+                                        if (ok) {
+                                            setDataToSend((prev) => ({
+                                                ...prev,
+                                                comment: "",
+                                                rate: "",
+                                                elementId: "",
+                                            }));
+                                        }
+                                    }}></AddComment>
+                            )}
+                            <div className="text-center mt-2">
+                                <Button type="submit">Submit</Button>
+                            </div>
+                        </Form>{" "}
+                    </div>
                     {/* qui */}
-                    {/* <ReviewsAccordion id={movieData.imdbID}></ReviewsAccordion> */}
                 </>
             ) : (
                 <Spinner animation="grow" />
