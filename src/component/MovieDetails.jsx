@@ -12,6 +12,8 @@ const MovieDetails = () => {
 
     // da qui
 
+    const [notifyReviews, setNotifyReviews] = useState(0);
+
     const [dataToSend, setDataToSend] = useState({
         comment: "",
         rate: "",
@@ -89,7 +91,9 @@ const MovieDetails = () => {
                     {/* qui */}
                     <hr />
                     <h2>Reviews</h2>
-                    <ReviewsAccordion id={movieData.imdbID}></ReviewsAccordion>
+                    <ReviewsAccordion
+                        id={movieData.imdbID}
+                        notifyReviews={notifyReviews}></ReviewsAccordion>
                     <Form
                         className="me-3"
                         onSubmit={(e) => {
@@ -150,6 +154,7 @@ const MovieDetails = () => {
                                 dataToSend={dataToSend}
                                 onDone={(ok) => {
                                     setShouldPost(false);
+                                    setNotifyReviews((prev) => prev + 1);
 
                                     if (ok) {
                                         setDataToSend((prev) => ({
