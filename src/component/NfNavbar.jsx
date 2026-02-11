@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class NfNavbar extends Component {
     render() {
@@ -41,11 +42,11 @@ class NfNavbar extends Component {
                                             </a>
                                         </li>
                                         <li className="nav-item">
-                                            <a
+                                            <Link
                                                 className="nav-link active fw-semibold"
-                                                href="#">
+                                                to="/tv-shows">
                                                 TV Shows
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li className="nav-item">
                                             <a className="nav-link" href="#">
