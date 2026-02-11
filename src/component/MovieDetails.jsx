@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import { plotFull, urlAPIid } from "./constants";
 import { useEffect, useState } from "react";
 
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Spinner } from "react-bootstrap";
+import ReviewsAccordion from "./ReviewsAccordion";
 
 const MovieDetails = () => {
     const id = useParams().id;
@@ -75,6 +75,7 @@ const MovieDetails = () => {
                             </Card.Text>
                         </Card.Body>
                     </Card>
+                    <ReviewsAccordion id={movieData.imdbID}></ReviewsAccordion>
                 </>
             ) : (
                 <Spinner animation="grow" />
