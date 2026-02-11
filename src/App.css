@@ -1,0 +1,25 @@
+.change-ratio {
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    object-position: center;
+}
+
+.my-car {
+    height: 100%;
+}
+
+.netflix-nav .navbar-collapse.show,
+.netflix-nav .navbar-collapse.collapsing {
+    background: #000;
+    z-index: 10000;
+    padding: 12px 16px;
+}
+
+.img-cont {
+    transition: transform 0.2s;
+    transform-origin: center;
+}
+
+.img-cont:hover {
+    transform: scale(1.1);
+}
